@@ -1,84 +1,9 @@
-# dynamodb:
-#   originalTableName: cortex_original
-#   v9SchemaFrom: 2019-06-05
-#   # Configs used to build table CLI flags for services.
-#   # Only supports "chunk" and "periodic" tables
-#   tableConfigs:
-#     chunk:
-#       prefix: cortex_chunks_
-#       tag: "cortex=chunks"
-#       period: 168h
-#       from: 2019-06-05
-#       inactiveWriteThroughput:
-#         base: 1
-#         scale:
-#           enabled: true
-#           minCapacity: 3000
-#           maxCapacity: 6000
-#       inactiveReadThroughput:
-#         base: 300
-#       readThroughput:
-#         base: 300
-#       writeThroughput:
-#         base: 3000
-#         scale:
-#           enabled: true
-#           minCapacity: 3000
-#           maxCapacity: 6000
-#     periodic:
-#       prefix: cortex_weekly_
-#       tag: "cortex=periodic-table"
-#       period: 168h
-#       from: 2019-06-05
-#       inactiveWriteThroughput:
-#         base: 1
-#         scale:
-#           enabled: true
-#           minCapacity: 3000
-#           maxCapacity: 6000
-#       inactiveReadThroughput:
-#         base: 300
-#       readThroughput:
-#         base: 300
-#       writeThroughput:
-#         base: 3000
-#         scale:
-#           enabled: true
-#           minCapacity: 3000
-#           maxCapacity: 6000
-
-# s3:
-#   bucketName: cortex
-#   # Type options: cloud or local
-#   type: local
-#   configuration:
-#     local:
-#       image:
-#         repository: lphoward/fake-s3
-#         tag: latest
-#       tolerations:
-#       - key: "dedicated"
-#         operator: "Equal"
-#         value: "cortex"
-#         effect: "NoSchedule"
-#       affinity:
-#         nodeAffinity:
-#           requiredDuringSchedulingIgnoredDuringExecution:
-#               nodeSelectorTerms:
-#               - matchExpressions:
-#                 - key: dedicated
-#                   operator: In
-#                   values:
-#                   - cortex
-
 replicationFactor: 3
 
 cassandra:
-  addresses: 35.192.123.98
+  addresses: "35.192.123.98"
   keyspace: cortex
-# aws:
-#   stsEnabled: false
-#   region: "us-west-2"
+  host_verification: false
 
 alertmanager:
   enabled: false

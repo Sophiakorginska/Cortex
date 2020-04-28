@@ -43,6 +43,9 @@ spec:
         - -target=ingester
         - -ingester.join-after=30s
         - -consul.hostname=consul.default.svc.cluster.local:8500
+        - -cassandra.addresses=35.192.123.98
+        - -cassandra.keyspace=cortex
+        - -cassandra.host-verification=false
         - -schema-config-file=/etc/cortex/schema.yaml
         - -store.chunks-cache.memcached.hostname=memcached.default.svc.cluster.local
         - -store.chunks-cache.memcached.timeout=100ms

@@ -21,6 +21,9 @@ spec:
         - -target=querier
         - -server.http-listen-port=80
         - -consul.hostname=consul.default.svc.cluster.local:8500
+        - -cassandra.addresses=35.192.123.98
+        - -cassandra.keyspace=cortex
+        - -cassandra.host-verification=false
         - -schema-config-file=/etc/cortex/schema.yaml
         - -querier.frontend-address=query-frontend.default.svc.cluster.local:9095
         - -store.chunks-cache.memcached.hostname=memcached.default.svc.cluster.local
