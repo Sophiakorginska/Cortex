@@ -29,6 +29,7 @@ spec:
     metadata:
       labels:
         name: ingester
+        use_cassandra: true
     spec:
       # Give ingesters 40 minutes grace to flush chunks and exit cleanly.
       # Service is available during this time, as long as we don't stop
@@ -43,7 +44,6 @@ spec:
         - -target=ingester
         - -ingester.join-after=30s
         - -consul.hostname=consul.default.svc.cluster.local:8500
-        - -cassandra.addresses=35.192.123.98
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         - -schema-config-file=/etc/cortex/schema.yaml

@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         name: ruler
+        use_cassandra: true
     spec:
       containers:
       - name: ruler
@@ -24,7 +25,6 @@ spec:
         - -ruler.configs.url=http://configs.default.svc.cluster.local:80
         - -ruler.alertmanager-url=http://alertmanager.default.svc.cluster.local/api/prom/alertmanager/
         - -consul.hostname=consul.default.svc.cluster.local:8500
-        - -cassandra.addresses=35.192.123.98
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         - -schema-config-file=/etc/cortex/schema.yaml

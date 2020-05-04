@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         name: table-manager
+        use_cassandra: true
     spec:
       containers:
       - name: table-manager
@@ -21,7 +22,6 @@ spec:
         - -target=table-manager
         - -server.http-listen-port=80
         - -schema-config-file=/etc/cortex/schema.yaml
-        - -cassandra.addresses=35.192.123.98
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         ports:
