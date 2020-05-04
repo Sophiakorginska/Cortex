@@ -17,17 +17,14 @@ spec:
       - name: table-manager
         image: quay.io/cortexproject/cortex:v1.0.0
         imagePullPolicy: IfNotPresent
-        env:
-          - name: CASSANDRA_DB_IP_KEY
-            valueFrom:
-              configMapKeyRef:
-                name: cassandra-ip-config
-                key: CASSANDRA_DB_IP
+        envFrom:
+          - configMapRef:
+              name: cassandra-ip-config
         args:
         - -target=table-manager
         - -server.http-listen-port=80
         - -schema-config-file=/etc/cortex/schema.yaml
-        - -cassandra.addresses=$(CASSANDRA_DB_IP_KEY)
+        - -cassandra.addresses=$(CASSANDRA_DB_IP)
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         ports:
