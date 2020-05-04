@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cassandra-ip-config
+  namespace: default
+data:
+  CASSANDRA_DB_IP: 104.198.64.255

@@ -12,16 +12,22 @@ spec:
     metadata:
       labels:
         name: table-manager
-        use_cassandra: true
     spec:
       containers:
       - name: table-manager
         image: quay.io/cortexproject/cortex:v1.0.0
         imagePullPolicy: IfNotPresent
+        env:
+          - name: CASSANDRA_DB_IP_KEY
+            valueFrom:
+              configMapKeyRef:
+                name: cassandra-ip-config
+                key: CASSANDRA_DB_IP
         args:
         - -target=table-manager
         - -server.http-listen-port=80
         - -schema-config-file=/etc/cortex/schema.yaml
+        - -cassandra.addresses=$(CASSANDRA_DB_IP_KEY)
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         ports:
