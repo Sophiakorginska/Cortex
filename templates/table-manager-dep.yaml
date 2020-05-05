@@ -24,7 +24,7 @@ spec:
         - -target=table-manager
         - -server.http-listen-port=80
         - -schema-config-file=/etc/cortex/schema.yaml
-        - -cassandra.addresses=$(CASSANDRA_DB_IP)
+        - -cassandra.addresses=$(CASSANDRA_DB_IP_1),$(CASSANDRA_DB_IP_2)
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         ports:
