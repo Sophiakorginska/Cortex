@@ -2,7 +2,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: retrieval-config
+  name: default-config
 data:
   default.yaml: |-
     global:
