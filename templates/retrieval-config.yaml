@@ -11,11 +11,11 @@ data:
     rule_files:
      - /var/rules.yml
 
-    alerting:
-     alertmanagers:
-      - static_configs:
-        - targets:
-          - alertmanager.default.svc.cluster.local:80/api/prom/alertmanager/
+    # alerting:
+    #  alertmanagers:
+    #   - static_configs:
+    #     - targets:
+    #       - alertmanager.default.svc.cluster.local:80/api/prom/alertmanager/
 
     remote_write:
       - url: http://nginx.default.svc.cluster.local:80/api/prom/push
