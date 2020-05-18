@@ -27,7 +27,7 @@ spec:
         - -ruler.configs.url=http://configs.default.svc.cluster.local:80
         - -ruler.alertmanager-url=http://alertmanager.default.svc.cluster.local/api/prom/alertmanager/
         - -consul.hostname=consul.default.svc.cluster.local:8500
-        - -cassandra.addresses=$(CASSANDRA_DB_IP_1)
+        - -cassandra.addresses=$CASSANDRA_DB_IP_1
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         - -schema-config-file=/etc/cortex/schema.yaml
