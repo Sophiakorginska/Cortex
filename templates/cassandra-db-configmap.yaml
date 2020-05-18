@@ -5,3 +5,4 @@ metadata:
   namespace: default
 data:
   CASSANDRA_DB_IP_1: your_ip
+  CASSANDRA_DB_IP_2: your_ip

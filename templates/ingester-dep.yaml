@@ -46,7 +46,7 @@ spec:
         - -target=ingester
         - -ingester.join-after=30s
         - -consul.hostname=consul.default.svc.cluster.local:8500
-        - -cassandra.addresses=$(CASSANDRA_DB_IP_1)
+        - -cassandra.addresses=$(CASSANDRA_DB_IP_1),
         - -cassandra.keyspace=cortex
         - -cassandra.host-verification=false
         - -schema-config-file=/etc/cortex/schema.yaml

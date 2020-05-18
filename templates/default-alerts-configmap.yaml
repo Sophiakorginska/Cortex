@@ -1,0 +1,24 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: retrieval-config
+data:
+  default.yaml: |-
+    global:
+      resolve_timeout: 5m
+    route:
+      group_by: ['instance', 'severity']
+      receiver: email-me
+      routes:
+      - match:
+          alertname: InstanceDown
+    receivers:
+    - name: email-me
+      email_configs:
+      - to: korginska@gmail.com
+        from: korginska@gmail.com
+        smarthost: smtp.gmail.com:587
+        auth_username: "korginska@gmail.com"
+        auth_identity: "korginska@gmail.com"
+        auth_password: "huzndxfjzpmllarx"

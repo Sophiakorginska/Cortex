@@ -1,0 +1,7 @@
+{
+    "rule_format_version": "2",
+    "alertmanager_config": "global:\n  resolve_timeout: 1m\nroute:\n  group_by: ['instance', 'severity']\n  receiver: 'gmail-notifications'\n  group_wait: 30s\n  group_interval: 5m\n  repeat_interval: 12h\n  routes:\n  - match:\n      alertname: InstanceDown\n    receiver: 'gmail-notifications'\nreceivers:\n- name: 'gmail-notifications'\n  email_configs:\n  - to: korginska@gmail.com\n    from: korginska@gmail.com\n    smarthost: smtp.gmail.com:587\n    auth_username: korginska@gmail.com\n    auth_identity: korginska@gmail.com\n    auth_password: huzndxfjzpmllarx\n    send_resolved: true",
+    "rules_files": {
+        "rules.yaml": "groups:\n- name: alert.rules\n  rules:\n  - alert: InstanceDown\n    expr: up == 0\n    for: 1m\n    labels:\n      severity: "critical"\n    annotations:\n      summary: "Endpoint {{ $labels.instance }} down"\n      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes.""
+    }
+}

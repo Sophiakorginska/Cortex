@@ -36,7 +36,6 @@ spec:
         - -store.chunks-cache.memcached.service=memcached
         - -distributor.replication-factor=1
         - -experimental.ruler.enable-api=true
-      
         ports:
         - containerPort: 80
         volumeMounts:
@@ -46,3 +45,6 @@ spec:
         - name: config-volume
           configMap:
             name: schema-config
+        - name: config-volume
+          configMap:
+            name: default-config

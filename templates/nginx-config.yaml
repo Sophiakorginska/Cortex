@@ -41,5 +41,9 @@ data:
         location ~ /api/prom/.* {
           proxy_pass      http://query-frontend.default.svc.cluster.local$request_uri;
         }
+
+        location = /api/prom/alertmanager {
+          proxy_pass      http://alertmanager.default.svc.cluster.local/api/prom/alertmanager$request_uri;
+        }
       }
     }
