@@ -9,13 +9,13 @@ data:
       scrape_interval: 30s # By default, scrape targets every 15 seconds.
 
     rule_files:
-     - /etc/prometheus/rules.yml
+     - /var/rules.yml
 
-    # alerting:
-    #  alertmanagers:
-    #   - static_configs:
-    #     - targets:
-    #       - nginx.default.svc.cluster.local:80/api/prom/alertmanager
+    alerting:
+     alertmanagers:
+      - static_configs:
+        - targets:
+          - alertmanager.default.svc.cluster.local:80/api/prom/alertmanager/
 
     remote_write:
       - url: http://nginx.default.svc.cluster.local:80/api/prom/push
