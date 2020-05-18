@@ -45,6 +45,3 @@ spec:
         - name: config-volume
           configMap:
             name: schema-config
-        - name: config-volume
-          configMap:
-            name: default-config

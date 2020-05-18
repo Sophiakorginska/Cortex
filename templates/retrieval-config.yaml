@@ -9,7 +9,7 @@ data:
       scrape_interval: 30s # By default, scrape targets every 15 seconds.
 
     rule_files:
-     - rules.yml
+     - /etc/prometheus/rules.yml
 
     alerting:
      alertmanagers:

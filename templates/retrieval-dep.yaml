@@ -58,11 +58,13 @@ spec:
         - containerPort: 9090
         volumeMounts:
         - name: config-volume
-          mountPath: /etc/prometheus
+          mountPath: /etc/prometheus/prometheus.yml
+        - name: rule-config-volume
+          mountPath: /etc/prometheus/rules.yml
       volumes:
         - name: config-volume
           configMap:
             name: retrieval-config
-        - name: config-volume
+        - name: rule-config-volume
           configMap:
             name: rules-config
