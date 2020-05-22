@@ -37,7 +37,7 @@ spec:
 
       containers:
       - name: ingester
-        image: quay.io/cortexproject/cortex:v1.0.0
+        image: quay.io/cortexproject/cortex:v1.1.0
         imagePullPolicy: IfNotPresent
         envFrom:
           - configMapRef:
